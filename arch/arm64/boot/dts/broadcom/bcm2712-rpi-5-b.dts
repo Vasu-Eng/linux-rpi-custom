@@ -763,3 +763,20 @@ spi10_cs_pins: &spi10_cs_gpio1 {};
 &pcie2 {
 	status = "okay";
 };
+
+
+&spi0 {
+    status = "okay";
+};
+
+
+
+
+
+
+
+
+
+
+
+
