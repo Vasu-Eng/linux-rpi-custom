@@ -1,0 +1,37 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+
+/ {
+        compatible = "brcm,bcm2712";
+        
+        fragment@0 {
+        target = <&spidev0>;
+ 
+	    __overlay__ {
+		status = "disabled";
+	    };
+	  };
+		
+	fragment@1 {
+        target = <&spi0>;
+
+        __overlay__ {
+            status = "okay";
+            display@0 {
+		    compatible = "ilitek,ili9341";
+		    reg = <0>;
+		    status = "okay";
+		    spi-max-frequency = <10000000>;
+
+		    dc-gpios = <&rp1_gpio 25 GPIO_ACTIVE_HIGH>;
+		    reset-gpios = <&rp1_gpio 24 GPIO_ACTIVE_HIGH>;
+             };
+		
+            
+        };
+    };
+
+     
+};
